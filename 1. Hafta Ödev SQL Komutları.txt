@@ -8,7 +8,7 @@ from employees;
 select distinct departments 
 from departments;
 
--- c) IT departmanýna ait calisanlari listeleme
+-- c) IT departmanina ait calisanlari listeleme
 
 select * 
 from departments;
@@ -17,7 +17,7 @@ select *
 from employees 
 where departmentid = 1;
 
--- d) Maasa Göre Sýralama
+-- d) Calisanlari maaslarinin yüksekligine göre siralama
 
 select * 
 from employees 
