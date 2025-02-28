@@ -1,1 +1,2 @@
-# TurkStudentCo-Bootcamp
+# TurkStudentCo-PostgreSQL-Bootcamp
+
