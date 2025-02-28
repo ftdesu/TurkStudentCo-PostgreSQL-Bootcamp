@@ -1,0 +1,29 @@
+-- a) Belirli Kolonlarý Secme
+
+select firstname, lastname, salary 
+from employees;
+
+-- b) DISTINCT komut ile tekrarlarý onleme
+
+select distinct departments 
+from departments;
+
+-- c) IT departmanýna ait calisanlari listeleme
+
+select * 
+from departments;
+-- IT departmaninin ID'sinin 1 oldugunu tespit ettik
+select * 
+from employees 
+where departmentid = 1;
+
+-- d) Maasa Göre Sýralama
+
+select * 
+from employees 
+order by salary desc;
+
+-- e) Kolonlari Birlestirme
+
+select firstname || ' ' || lastname as fullname
+from employees;
