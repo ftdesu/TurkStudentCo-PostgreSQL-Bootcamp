@@ -11,13 +11,13 @@ where invoice_date is null
 	-- Toplam 209 satirda null degeri bulunmustur.
 
 -- 2. 
-select * , total*2 as total_2 -- maaslarýn iki kati icin olusturulan kolon
+select * , total*2 as total_2 -- maaslarin iki kati icin olusturulan kolon
 from invoice 
 order by total_2 desc;
 
 -- 3.  
 select 
-    concat(left(billing_address, 3), right(billing_address, 4)) as "Açýk Adres", -- adres kolonunun ilk 3 ve son 4 harfinden olusturulan yeni kolon
+    concat(left(billing_address, 3), right(billing_address, 4)) as "Acik Adres", -- adres kolonunun ilk 3 ve son 4 harfinden olusturulan yeni kolon
     *
 from invoice
 where date_part('year', invoice_date) = 2013 
