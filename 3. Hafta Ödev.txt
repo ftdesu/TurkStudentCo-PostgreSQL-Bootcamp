@@ -1,0 +1,49 @@
+-- 1. soru 2009 yýlý tum faturalarin toplami
+
+select sum(total) as fatura_toplami 
+	from 
+	invoice
+	where 
+	invoice_date between '2009-01-01' and '2009-12-31';
+	-- 2009 yilinda toplam 449.46 birimlik fatura kesilmis
+
+-- 2. soru Track, PlaylistTrack ve Playlist Tablolarýnda JOIN
+select 
+	t.track_id,
+	t.name, 
+	t.composer, 
+	t.milliseconds, 
+	t.bytes, 
+	t.unitprice,
+	pt.playlist_id,
+    p.name as playlist_name
+from 
+	track t
+left join 
+	playlisttrack pt on t.track_id = pt.track_id
+left join 
+	playlist p on pt.playlist_id = p.playlist_id	
+	-- left join kullanilarak track tablosundaki tum parcalarýn bilgileri alinir.
+	-- bu parcalarin ait olduðu playlist bilgileri eklenir,
+	-- parca herhangi bir playlist'e ait degilse, bu parca da sonuc kumesinde yer alir ve ilgili playlist sutunlarý NULL degerini alir.
+
+-- 3. soru Track, Album ve Artist Tablolarinda JOIN
+
+select
+    t.name as track_name,
+    ar.name as artist_name,
+    t.milliseconds
+from 
+	track t
+    
+join
+    album al on t.album_id = al.album_id
+join
+    artist ar on al.artist_id = ar.artist_id
+	-- Bu sorgu, track, album ve artist tablolarini  birlestirir.	
+where 
+    al.title = 'Let There Be Rock'
+	-- where fonksiyonu ile album adi "Let There Be Rock" olan kayitlar filtrelenir.
+order by
+    t.milliseconds desc;
+	-- Sonuclar, parca suresine (milliseconds) gore buyukten kucuge siralanir.
